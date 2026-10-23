@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F7F5EF;
+    color: #303B32;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #536B52;
+    color: white;
+    text-align: center;
+    padding: 26px 16px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 27px;
+}
+
+header p {
+    margin: 10px 0 0;
+    color: #E8EEE5;
+    font-size: 14px;
+}
+
+.container {
+    width: 100%;
+    max-width: 580px;
+    margin: 40px auto;
+    padding: 0 18px;
+}
+
+.card {
+    background-color: #FFFFFF;
+    padding: 28px;
+    border: 1px solid #E7E4DA;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(50, 65, 45, 0.08);
+}
+
+.card h2 {
+    margin: 0 0 8px;
+    font-size: 22px;
+}
+
+.description {
+    color: #777F74;
+    font-size: 14px;
+    margin: 0 0 24px;
+}
+
+label {
+    display: block;
+    margin: 18px 0 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+select,
+input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #D8DED3;
+    border-radius: 6px;
+    background-color: #FFFFFF;
+    font-size: 15px;
+    color: #303B32;
+}
+
+select:focus,
+input:focus {
+    outline: 2px solid #D5E2D0;
+    border-color: #536B52;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    padding: 13px;
+    border: none;
+    border-radius: 6px;
+    background-color: #536B52;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #405640;
+}
+
+button:disabled {
+    background-color: #9AA995;
+    cursor: wait;
+}
+
+.response {
+    margin-top: 26px;
+    padding: 18px;
+    background-color: #F8F8F4;
+    border: 1px solid #E7E8DF;
+    border-radius: 8px;
+}
+
+.response h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+pre {
+    margin: 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #3F4A3E;
+}
+
+footer {
+    padding: 16px;
+    text-align: center;
+    color: #777F74;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 22px;
+    }
+
+    .container {
+        margin: 24px auto;
+    }
+
+    .card {
+        padding: 22px;
+    }
+}

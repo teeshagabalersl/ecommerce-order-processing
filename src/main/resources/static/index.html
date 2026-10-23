@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Order Processing System</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+    <h1>E-Commerce Order Processing</h1>
+    <p>Place an order and process it through RabbitMQ</p>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h2>Place an Order</h2>
+        <p class="description">Enter the order details below.</p>
+
+        <form id="orderForm">
+            <label for="category">Product Category</label>
+            <select id="category" name="category" required>
+                <option value="electronics">Electronics</option>
+                <option value="clothing">Clothing</option>
+            </select>
+
+            <label for="quantity">Quantity</label>
+            <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    min="-1000000"
+                    max="1000000"
+                    step="1"
+                    placeholder="Enter quantity"
+                    required
+            >
+
+            <button type="submit" id="submitButton">Place Order</button>
+        </form>
+
+        <section class="response">
+            <h3>Order Response</h3>
+            <pre id="response">Your order details will appear here.</pre>
+        </section>
+    </section>
+</main>
+
+<footer>
+    E-Commerce Order Processing System | Spring Boot &amp; RabbitMQ
+</footer>
+
+<script>
+    const orderForm = document.getElementById("orderForm");
+    const responseBox = document.getElementById("response");
+    const submitButton = document.getElementById("submitButton");
+
+    orderForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const category = document.getElementById("category").value;
+        const quantity = document.getElementById("quantity").value;
+
+        responseBox.textContent = "Submitting order...";
+        submitButton.disabled = true;
+
+        try {
+            const response = await fetch(
+                `/api/orders?category=${encodeURIComponent(category)}&quantity=${encodeURIComponent(quantity)}`,
+                { method: "POST" }
+            );
+
+            const data = await response.json();
+
+            responseBox.textContent = JSON.stringify(data, null, 2);
+
+            if (!response.ok) {
+                responseBox.textContent =
+                    "Request failed:\n" + JSON.stringify(data, null, 2);
+            }
+        } catch (error) {
+            responseBox.textContent =
+                "Unable to connect to the application. Please check that Spring Boot is running.";
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+</script>
+
+</body>
+</html>
