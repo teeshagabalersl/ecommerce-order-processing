@@ -1,0 +1,39 @@
+# Maven build output
+target/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# STS / Eclipse
+.apt_generated/
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Gradle build output
+build/
+
+# VS Code
+.vscode/
+
+# Java compiler output
+out/
+
+# macOS
+.DS_Store
